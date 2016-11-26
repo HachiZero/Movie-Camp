@@ -1,0 +1,572 @@
+@CHARSET "UTF-8";
+@import url(https://cdn.jsdelivr.net/font-nanum/1.0/nanumbarungothic/nanumbarungothiclight.css);
+
+/*WebFont
+웹 폰트*/
+@font-face {
+ font-family: 'NanumBarunGothic';
+ font-weight: 300;
+ src: url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWebLight.eot');
+ src: url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWebLight.eot?#iefix') format('embedded-opentype'), url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWebLight.woff') format('woff'), url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWebLight.ttf') format('truetype');
+}
+body{
+	font-family: 'NanumBarunGothic';
+}
+
+::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+    color:    gray;
+}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+   color:    gray;
+   opacity:  1;
+}
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+   color:    gray;
+   opacity:  1;
+}
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+   color:    gray;
+}
+
+/*Main****************************************************************************************************************/
+/*Main Film positioned Top & Height 
+메인 필름 상단에 위치 & 길이 조정*/
+.fp-tableCell {
+ 	height: 100% !important;
+}
+.slick-slider {
+	height: 90%;
+}
+.autoplay img{
+	opacity: 0.5;
+	width: 100%;
+	height: 25rem;
+}
+
+.paging, .result_none{
+	text-align: center;
+}
+.autocomplete{
+	z-index: 998;
+}
+
+.pagination li.active a {
+	background-color: #00bfa5;
+}
+
+a, #help_txt{
+	color: #00bfa5;
+}
+
+/* img{
+	position: absolute;
+    max-width: 100%;
+} */
+#main_image img {
+	height: 50%; 
+	width: 100%;
+	display: block; 
+	margin-bottom: auto; 
+	margin-top: auto; 
+	opacity: 0.5; /* 0.8 */ 
+	z-index: 0; 
+	position: absolute;
+}
+
+/*Search****************************************************************************************************************/
+/*search page 'Before Movie...'*/
+.main_title {
+	color: white;	
+	display: block;
+	font-size: 22px;
+	margin-bottom: 0;
+	text-shadow: 5px 5px 0px #00bfa5;
+}
+.main_title_large {
+	font-size: 1.9em;
+	margin-bottom: 1%;
+	color: #ffffff;
+}
+.logo {
+	animation: 2.5s ease-out 0s normal none infinite levitation;
+   	-webkit-animation: 2.5s ease-out 0s normal none infinite levitation;
+   	color: #00bfa5;
+   	opacity: 0.8
+   	border-radius: 10px;
+   	padding: 5px;
+}
+.main_title_icon {
+	text-align: right;
+	margin-top: auto;
+	margin-bottom: auto;
+}
+.main_title_text {
+	text-align: left;
+	margin-top: 2%;
+	padding-left: 0;
+}
+.input-field #search{
+	margin-top: 5%;
+} 
+.searchBar{
+	background-color: white;
+}
+.shadow {
+	color: black;
+}
+#search_keyword:hover,
+#icon_delete:hover{
+	cursor: pointer;
+}
+
+img .activator{
+	height: 450px;
+}
+.bgBlur {
+  content: '';
+  position: absolute;
+  top: 0; left:0; right:0; bottom:0; 
+  background: inherit;
+  z-index:-1;
+  filter: blur(5px); 
+  -webkit-filter: blur(5px); 
+  -moz-filter: blur(5px);
+  -o-filter: blur(5px);
+  -ms-filter: blur(5px);
+  filter: blur(3px);
+}
+
+.pagination li.active a {
+	background-color: #242424;
+	color: #00bfa5;
+}
+
+/*dailyBoxOffice*/
+#dailyBoxOffice{
+	border: 5px solid #00bfa5;
+	border-radius: 10px;
+	padding: 1%;
+	margin-top: 3%; 
+	margin-bottom: 2%;
+}
+#dailyBoxOffice .lead {
+	color: #00bfa5;
+	font-weight: bold;
+	font-size: 1.5em;
+	text-align: center;
+	margin-top: 0;
+}
+#dailyBoxOffice p {
+	margin-bottom: 1%;
+}
+
+/*dailyBoxOffice - table*/
+#boxoffice_container td {
+	padding: 0;
+}
+#boxoffice_rank {
+	width: 5%;
+	text-align: center;
+}
+#boxoffice_rankInten {
+	width: 10%;
+	text-align: center;
+}
+#boxoffice_movieNm {
+	width: 60%;
+}
+#boxoffice_audiAcc {
+	width: 35%;
+	text-align: right;
+}
+
+/*dailyBoxOffice - table carousel*/
+.slick-dots li button:before{
+	color: gray;
+}
+.slick-dots li.slick-active button:before{
+	color: white;
+}
+.slick-track {
+	height: 19rem !important;
+}
+
+/*main menu*/
+#mainmenu_container { 
+	position:fixed;
+	width: 100%;
+	z-index:9;
+	text-align:center;
+}
+#mainmenu_container ul { 
+	list-style: none; 
+	width: 100%; 
+	margin: 0;
+}
+#mainmenu_container ul li:first-child{ 
+	padding-left: 0;
+}
+#mainmenu_container ul li a{
+	text-align: center;
+	padding:0;
+	width: 25%;
+	float: right;
+}
+#mainmenu_container ul li a:hover{ 
+	text-decoration: underline;
+}
+
+/*main menu - log*/
+#mainmenu_container ul li .mainmenu_icon {
+	width: inherit;
+}
+
+#mainmenu_container ul li .mainmenu_icon i {
+	color: gray;
+    padding-right: 15px;
+    font-size: 3rem;
+}
+
+.mainmenu_icon a{
+    cursor: default;
+    width: auto !important;
+}
+
+#img_icon:hover{
+	cursor: pointer;
+	color: #00bfa5 !important;
+}
+
+/*main menu - 메뉴 공간 띄우기
+Section padding cause MainMenu*/
+.section {
+	padding-top: 90px;
+	margin:0;
+	height: 100% !important;
+}
+#main_searchdetail{
+	padding-left: 1%;
+	padding-right: 1%;
+	padding-bottom: 1%;
+}
+
+/* slick slide css */
+.slick-list.draggable{
+	height: 100%;
+}
+
+/*slide*/
+.slide {
+	text-align: center;
+	width: 90%;
+	margin: auto;
+	padding: auto;
+}
+/*slide - delete Arrow
+화살표 없애기*/
+.fp-controlArrow.fp-next, .fp-controlArrow.fp-prev {
+	display: none;
+}
+
+/*SearchList - card*/
+#listButton {
+	background-color: white;
+	border: none;
+	font-size: 1.2em;
+	font-weight: bold;
+}
+#listCard {
+	padding: 1%;
+}
+.card, .card img {
+	border-radius: 10px;
+}
+/*SearchList - paging*/
+.searchList_paging a {
+	color: #aaaaaa;
+	cursor: pointer;
+}
+.searchList_paging #searchlist_paging_selected {
+	font-size: 2rem;
+	color: #00bfa5;
+}
+.searchList_paging .less10 {
+	padding: 1%;
+}
+
+/*movie detail slide menu*/
+.intro{
+   margin: auto;
+   text-align: center;
+}
+#detail_table{
+   background-color: gray;
+   height: auto;
+}
+#detail_menu {
+	padding: 0;
+}
+#detail_menu tr td, #detail_menu tr th{
+   cursor: pointer;
+}
+
+
+/*MovieDetail*/
+#slidedetailshow {
+	padding-left: 3%; 
+}
+#detail_info_title {
+	color: white;
+	font-weight: bold;
+	font-family:'NanumBarunGothic';
+	font-size: 2.5rem;
+}
+.detail_title, .detail_content {
+	font-family: 'NanumBarunGothic';
+	color: white;
+}
+#detail_INFO_image {
+	border: 1px solid;
+}
+#detail_INFO_content {
+	margin: 0;
+}
+.detail_content {
+	text-align: left;
+	padding-top: 3%;
+}
+.detail_content_media {
+	margin-top: 3%;
+	text-align: center;
+	padding-right: 0;
+}
+#detail_Actor_name {
+	padding-bottom: 0;
+	padding-left: 5%;
+	text-align: left;
+	width: 100%;
+}
+#detail_Actor_char {
+	padding-top: 0;
+	padding-left: 5%;
+	text-align: left;
+	width: 100%;
+}
+.detail_null {
+	color: gray;
+	size: 2rem;
+	margin-top: 10%;
+}
+#detail_info_titleOg {
+	color: white;
+	font-size: 1.5rem;
+}
+
+/*SearchList*/
+#searchList {
+	 padding-left: 2%; 
+	 padding-right: 2%; 
+	 padding-bottom: 2%;
+}
+#searchList img {
+	height:20rem;
+	border-radius: 10px;
+}
+
+#detail_content_iframe {
+	display: none;
+}
+.detail_null {
+	color: gray;
+	size: 2rem;
+	margin-top: 10%;
+}
+
+/*Loading-------------------------------------------------------------------------------------------------------------*/
+.wrap-loading{ /*화면 전체를 어둡게 합니다.*/
+    position: fixed;
+    left:0;
+    right:0;
+    top:0;
+    bottom:0;
+    background: rgba(0,0,0,0.8); /*not in i.e. */
+    filter: progid:DXImageTransform.Microsoft.Gradient(startColorstr='#20000000', endColorstr='#20000000');    /* i.e. */
+    
+}
+.wrap-loading div{ /*로딩 이미지*/
+	display: block;
+	text-align: center;
+	margin-top: 15%;
+
+}
+.wrap-loading div img {
+    width: 16em;
+	height: 16em;
+}
+.display-none{ /*감추기*/
+    display:none;
+}
+
+/*Genre****************************************************************************************************************/
+/* add */
+iframe {
+   border: 0;
+   width: 100%;
+   height: 100%;
+}
+.intro{
+   height: 90%;
+   width: 95%;
+   margin: auto;
+   text-align: center;
+}
+#genre_table{
+   background-color: gray;
+   height: auto;
+}
+#pageA tr td, #pageB tr td{
+   padding: 10px 5px;
+   cursor: pointer;
+}
+.fp-controlArrow{
+   display: none;
+}
+.Action {
+   background-color: rgb(100, 100, 110);
+}
+.card-content {
+   overflow: visible;
+}
+.section.genre.fp-section.active.fp-completely{ /* just for genre */
+   padding-top: 40px;
+}
+.overlay{ /* which covers whole page */
+    opacity:1;
+    background-color:#ccc;
+    position:fixed;
+    width:100%;
+    height:100%;
+    top:0px;
+    left:0px;
+    z-index:1000;
+}
+/*Genre - card img*/
+#GenreList img {
+	height:20rem;
+	border-radius: 10px 10px 0 0;
+	/* border-radius: 10px; 1116ys*/
+}
+#GenrelistCard {
+	text-align: center;
+	padding: 1%;
+}
+#GenrelistCard a {
+	color: black;
+	background-color: white;
+   	border: none;
+   	font-size: 1.2em;
+   	font-weight: bold;
+}
+
+/* Top100 ****************************************************************************************************************/
+#movieTop100{
+	border: 5px solid #00bfa5;
+	border-radius: 10px;
+	padding: 1%;
+	height: 35rem;
+}
+#movieTop100 .lead {
+	color: #00bfa5;
+	font-weight: bold;
+	font-size: 1.5em;
+	text-align: center;
+	margin-top: 0;
+}
+.sec_top100 .fp-controlArrow.fp-next, .sec_top100 .fp-controlArrow.fp-prev, .sec_top100 .fp-controlArrow{
+	display: inherit;
+	opacity: .5;	
+}
+
+span.character-counter{
+	height: 5px !important;
+    margin-top: -13px;
+}
+
+.input-field.radio_option{
+	margin-top: 0px !important;
+	padding-left: 0px !important;
+}
+
+/*QnA****************************************************************************************************************/
+
+/* QNA table css */
+#boardicon{
+	height:45px;
+	vertical-align : middle; 
+	text-align: center;
+	display: table-cell;
+} 
+#boardlock{
+   height:24px;
+   vertical-align : sub; 
+   text-align: center;
+   display: table-cell;
+   bottom:-10px;
+}
+table#qnalist td, th{
+	padding : 1px 7px; 
+}
+table#qnalist tr:hover{
+	color: #242424;
+}
+
+/* Modal */
+.modal{ 
+	width: 350px;
+	height: 300px;
+	max-height: 100% !important; 
+} 
+#modalPass, #modalOk{
+    width:350px;
+    height:300px;
+}
+
+#modalHelp{
+    width: 90%;
+    height: 98%;
+    top: 1% !important;
+}
+
+
+.qna_load, #section_QnA_height{
+	min-height: 100%;
+	height: auto !important;
+	height: 100%;
+	margin: 0 auto ;
+}
+
+.fp-auto-height.fp-section,
+.fp-auto-height .fp-slide,
+.fp-auto-height .fp-tableCell{
+    height: auto !important;
+}
+
+/* Modal Help */
+.slick_help{
+	width: 90%;
+	height: 85%;
+}
+
+.modal .modal-footer{
+	background-color: rgba(250, 250, 250, 0);	
+}
+
+.slick_help .slick-track {
+	height: 98% !important;
+}
+
+.slick_help img{
+ 	width:100%;
+ 	height:96%;
+ 	border:2px solid #00bfa5;
+} 
