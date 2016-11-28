@@ -1,28 +1,26 @@
 /*Cookie Record*/
 function createCookie(id){
- var movieList = Cookies.getJSON("movieList");
- console.log(typeof movieList);
+ var movieList = Cookies.getJSON("movieList"); //쿠키에서 영화목록을 jsonString 방식으로 받는다
+ //console.log(typeof movieList);
  
- if(typeof movieList == "undefined"){
+ if(typeof movieList == "undefined"){ //쿠키에 영화목록이 없으면 jsonString 생성
     movieList = {"movies" : [id]};
- }else {
-    
+ }else { //있으면 추가
     b = true;
-    for(i = 0; i < movieList["movies"].length; i++){
+    for(i = 0; i < movieList["movies"].length; i++){ //중복 검사
        if(id === movieList["movies"][i]){
           b = false;
        }
     }
-    if(b === true && movieList["movies"].length < 30){
+    if(b === true && movieList["movies"].length < 50){ //로딩 시간 단축과 url 길이를 조절하기 위해 50개까지 저장할 수 있게끔 제한
        movieList["movies"].push(id);
-       //Materialize.toast('이 영화가 찜 리스트에 추가되었어요!', 3000, 'rounded');
     }else {
        //alert("이미 선택된 영화입니다.");
     }
     console.log(movieList["movies"]/* + " " + movieList["movies"].length*/);
  }
  //readCookie();
- Cookies.set('movieList', movieList, {expires : 365}); //365일 동안 남아있음
+ Cookies.set('movieList', movieList, {expires : 365}); //365일 동안 유지된다
 }
 
 function readCookie(){
