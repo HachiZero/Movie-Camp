@@ -318,30 +318,29 @@ function movieDetail(id){
 //cookies************************************************************************************************************************************
 //////////////////////////////////////////////////////////////////////////////////////////add2
 function removeMovieFromCookie(id){ //특정 영화를 쿠키에서 제거
-	var movieList = Cookies.getJSON("movieList");
- 
-	if(typeof movieList == "undefined"){
-		return
-	}else {
-		b = false;
-		for(i = 0; i < movieList["movies"].length; i++){
-			if(id === movieList["movies"][i]){
-				delete movieList["movies"][i];
-				movieList["movies"].splice(i, 1);
-				i--;
-			}
-		}
-		console.log(movieList["movies"]/* + " " + movieList["movies"].length*/);
+    var movieList = Cookies.getJSON("movieList");
+    if(typeof movieList == "undefined"){
+	return
+    }else {
+	b = false;
+	for(i = 0; i < movieList["movies"].length; i++){
+    	    if(id === movieList["movies"][i]){
+		delete movieList["movies"][i];
+		movieList["movies"].splice(i, 1);
+		i--;
+	    }
 	}
-	Cookies.set('movieList', movieList);
+	    console.log(movieList["movies"]/* + " " + movieList["movies"].length*/);
+    }
+    Cookies.set('movieList', movieList);
 }
 
-function deleteCookie() {
-	Cookies.remove('movieList', {path:'/'});
-	console.log("cookie deleted");
+function deleteCookie() { //영화목록 전체삭제
+    Cookies.remove('movieList', {path:'/'});
+    console.log("cookie deleted");
 }
 
-function open_log() { //11-15 12 37
+function open_log() { //팝업창 열기
 	if(Cookies.get("movieList", {path:'/'}) === undefined || Cookies.get("movieList", {path:'/'}).length < 14) {
 		Materialize.toast("선택된 영화가 없습니다.", 3000, 'rounded');
 	}else {
