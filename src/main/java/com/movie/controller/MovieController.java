@@ -424,39 +424,39 @@ public class MovieController {
 		}
 		return retMap;
 	}
-
+	//받은 JSONObject의 value의 타입을 판별 후 JSONArray면 list로, JSONObject면 map으로 전환하는 재귀함수
 	public static Map<String, Object> toMap(JSONObject object) throws JSONException {
-		Map<String, Object> map = new HashMap<String, Object>();
+	    Map<String, Object> map = new HashMap<String, Object>();
 
-		Iterator<String> keysItr = object.keys();
-		while (keysItr.hasNext()) {
-			String key = keysItr.next();
-			Object value = object.get(key);
+	    Iterator<String> keysItr = object.keys(); // 키 리스트 추출
+    	    while (keysItr.hasNext()) {
+		String key = keysItr.next();
+		Object value = object.get(key);
 
-			if (value instanceof JSONArray) {
-				value = toList((JSONArray) value);
-			} else if (value instanceof JSONObject) {
-				value = toMap((JSONObject) value);
-			}
-			map.put(key, value);
+		if (value instanceof JSONArray) { //if JSONArray
+		    	value = toList((JSONArray) value);
+		} else if (value instanceof JSONObject) { //else
+		    	value = toMap((JSONObject) value);
 		}
-		return map;
+		map.put(key, value);
+	    }
+	    return map;
 	}
-
+	//받은 JSONArray의 각 JSONObject의 타입을 판별 후 JSONArray면 list로, JSONObject면 map으로 전환하는 재귀함수
 	public static List<Object> toList(JSONArray array) throws JSONException {
-		List<Object> list = new ArrayList<Object>();
-		for (int i = 0; i < array.length(); i++) {
-			Object value = array.get(i);
-			if (value instanceof JSONArray) {
-				value = toList((JSONArray) value);
-			}
-
-			else if (value instanceof JSONObject) {
-				value = toMap((JSONObject) value);
-			}
-			list.add(value);
+	    List<Object> list = new ArrayList<Object>();
+	    for (int i = 0; i < array.length(); i++) {
+		Object value = array.get(i);
+			
+		if (value instanceof JSONArray) { //if JSONArray
+		    value = toList((JSONArray) value);
 		}
-		return list;
+		else if (value instanceof JSONObject) { //else
+		    value = toMap((JSONObject) value);
+		}
+		list.add(value);
+	    }
+	    return list;
 	}
 
 	// Top100
