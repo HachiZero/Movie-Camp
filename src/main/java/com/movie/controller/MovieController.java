@@ -310,31 +310,30 @@ public class MovieController {
 	//////////////////////////////////////////////////////// add
 	@RequestMapping(value = "/movieList_genre")
 	public ModelAndView movieList_tmdb_genre(@RequestParam("genre") String genre,
-			@RequestParam(value = "pageNum", defaultValue = "1") String pageNum, HttpSession session)
-			throws JSONException, ClientProtocolException, IOException {
-		HashMap<String, Object> tmdb_result = null;
+	    @RequestParam(value = "pageNum", defaultValue = "1") String pageNum, HttpSession session)
+	    throws JSONException, ClientProtocolException, IOException {
+	    HashMap<String, Object> tmdb_result = null;
 
-		String sEncoded = URLEncoder.encode(genre, "UTF-8");
-		String url = Constant.TMDB_DISCOVER_URL + sEncoded + Constant.TMDB_SEARCH_MOVIE + Constant.TMDB_KEY
-				+ Constant.TMDB_SEARCH_LANG + Constant.TMDB_SEARCH_PAGE;
-		try {
-			tmdb_result = mapper.readValue(new URL(url + pageNum), HashMap.class);
-			System.out.println(url + pageNum);
-			///
-			tmdb_result.put("pageNum", pageNum);
-			int currentPageLimitNum = (Integer.parseInt(pageNum) / 10) + 1;
-			if (Integer.parseInt(pageNum) % 10 == 0)
-				currentPageLimitNum = Integer.parseInt(pageNum) / 10;
-			tmdb_result.put("currentPageLimitNum", currentPageLimitNum);
-			tmdb_result.put("genre", genre);
-			System.out.println(url + ", " + pageNum + ", " + currentPageLimitNum);
-			///
-		} catch (Exception e) {
-			System.out.println("movieList_tmdb Error : " + e);
-		}
-		System.out.println(tmdb_result);
-
-		return new ModelAndView("movieList_genre", "movie_info", tmdb_result);
+	    String sEncoded = URLEncoder.encode(genre, "UTF-8");
+	    String url = Constant.TMDB_DISCOVER_URL + sEncoded + Constant.TMDB_SEARCH_MOVIE + Constant.TMDB_KEY
+		+ Constant.TMDB_SEARCH_LANG + Constant.TMDB_SEARCH_PAGE; //tmdb api url
+	    try {
+		tmdb_result = mapper.readValue(new URL(url + pageNum), HashMap.class);
+		System.out.println(url + pageNum);
+		///pagination
+		tmdb_result.put("pageNum", pageNum);
+		int currentPageLimitNum = (Integer.parseInt(pageNum) / 10) + 1;
+		if (Integer.parseInt(pageNum) % 10 == 0)
+	    	    currentPageLimitNum = Integer.parseInt(pageNum) / 10;
+		    tmdb_result.put("currentPageLimitNum", currentPageLimitNum);
+		    tmdb_result.put("genre", genre);
+		    System.out.println(url + ", " + pageNum + ", " + currentPageLimitNum);
+		///
+	    } catch (Exception e) {
+		System.out.println("movieList_tmdb Error : " + e);
+	    }
+	    System.out.println(tmdb_result);
+	    return new ModelAndView("movieList_genre", "movie_info", tmdb_result);
 	}
 	//////////////////////////////////////////////////////////
 	// FOR COOKIES
